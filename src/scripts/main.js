@@ -24,5 +24,7 @@ const errorHandler = () => {
   document.body.appendChild(message);
 };
 
-promise1.then(successHandler);
-promise2.catch(errorHandler);
+Promise.race([promise1, promise2])
+
+  .then(successHandler)
+  .catch(errorHandler);
